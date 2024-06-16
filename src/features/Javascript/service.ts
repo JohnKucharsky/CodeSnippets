@@ -829,4 +829,25 @@ export const javascriptCodeSnippets = [
     "  .catch(console.error);\n" +
     "\n" +
     "// an error",
+  //   23
+  "const mixedPromisesArray = [\n" +
+    "  Promise.resolve(33),\n" +
+    "  Promise.reject(44),\n" +
+    "];\n" +
+    "const p = Promise.all(mixedPromisesArray);\n" +
+    "console.log(p.catch(console.error));\n" +
+    'console.log("hit");\n' +
+    "setTimeout(() => {\n" +
+    '  console.log("the queue is now empty");\n' +
+    "  console.log(p);\n" +
+    "});\n" +
+    "\n" +
+    'console.log("hit bottom");\n' +
+    "\n" +
+    "// Promise { <pending> }\n" +
+    "// hit\n" +
+    "// hit bottom\n" +
+    "// 44\n" +
+    "// the queue is now empty\n" +
+    "// Promise { <rejected> 44 }",
 ];
